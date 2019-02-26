@@ -18,17 +18,18 @@ class Router
         $inscription = new Inscription();
 
         $ctrl = new Controller($view, $connexion, $weirdObjectStorage, $inscription);
+        
+        session_start();
+
+        $ctrl->accueil();
         if (key_exists('list', $_GET)) {
-            $ctrl->connexion();
             $ctrl->showList();
         }
-        session_start();
 
         if (key_exists("id",$_SESSION)) {
             echo "Bonjour ".$_SESSION['id'];
         }
         
-        $ctrl->accueil();
         if (key_exists('connexion', $_GET)) {
             $ctrl->connexion();
         }
