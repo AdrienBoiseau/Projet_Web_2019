@@ -1,7 +1,7 @@
 <?php
-$session = "projet_tutore";
+$session = "projet_web_2019";
 $usr = "root";
-$mdp = "root";
+$mdp = "";
 function OuvrirConnexion($session, $usr, $mdp)
 {
     try {

@@ -16,31 +16,39 @@ class Connexion
     function connexion ($bdd) {
         if (key_exists("pass",$_POST) && key_exists("name",$_POST)) {
             //requête sur pour récuperer le mot de passe de l'utilisateur dans la base de données
-            $usersSQL = "select * from professeur where name ='".$_POST['name']."'";
+            $usersSQL = "select * from USERS where name ='".$_POST['name']."'";
             $usersSQL=$bdd->query($usersSQL, PDO::FETCH_ASSOC);
             $count = $usersSQL->rowCount();
 
             if ($count == 0) {
-                echo "aucune ligne renvoyée";
+                $_SESSION["feedback"] = "Nom d'utilisateur inexistant";
             }
             else {
                 foreach ($usersSQL as $users) {
 
                     if (password_verify($_POST['pass'], $users['password'])) {
-                        echo "Vous êtes connectés.";
+                        $_SESSION["feedback"]= "Vous êtes connectés.";
                         $_SESSION['id'] = $_POST['name'];
                     } else {
-                        echo "Nom d'utilisateur ou mot de passe incorrect.";
+                        $_SESSION["feedback"]= "Nom d'utilisateur ou mot de passe incorrect.";
 
                     }
                 }
             }
-            ?>
-            <script language="javascript">
+            $url="/Projet_Web_2019";
+            header("Location: " . $url, true, 303);
 
-            </script>
-            <?php
         }
+    }
+
+    function deconnexion() {
+        session_start();
+        if (key_exists("id",$_SESSION)) {
+            session_destroy();
+        }
+        $url="/Projet_Web_2019";
+        header("Location: " . $url, true, 303);
+
     }
 
 }
