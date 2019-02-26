@@ -12,6 +12,7 @@ class Connexion
     function __construct () {
 
     }
+    
     function connexion ($bdd) {
         if (key_exists("pass",$_POST) && key_exists("name",$_POST)) {
             //requête sur pour récuperer le mot de passe de l'utilisateur dans la base de données

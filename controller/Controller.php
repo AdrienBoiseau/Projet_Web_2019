@@ -1,25 +1,23 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Adrien
- * Date: 2019-02-13
- * Time: 11:24
- */
+
 require_once("view/View.php");
 require_once ("model/Connexion.php");
+
 class Controller
 {
     protected $view;
     protected $connexion;
+    protected $weirdObjectStorage;
 
     /**
      * Controller constructor.
      * @param $view
      */
-    public function __construct(View $view, Connexion $connexion)
+    public function __construct(View $view, Connexion $connexion, WeirdObjectStorage $weirdObjectStorage)
     {
         $this->view = $view;
         $this->connexion = $connexion;
+        $this->weirdObjectStorage = $weirdObjectStorage;
     }
 
     public function connexion() {
@@ -31,6 +29,10 @@ class Controller
 
         $this->view->makeConnexionPage();
         $this->connexion->connexion($bdd);
+    }
+
+    public function showList(){
+        $this->view->makeListPage($this->weirdObjectStorage->readAll());
     }
 
 }

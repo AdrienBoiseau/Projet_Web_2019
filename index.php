@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Adrien
- * Date: 2019-02-13
- * Time: 12:01
- */
+
 set_include_path("./Projet_Web_2019");
 
 require_once ("Router.php");
