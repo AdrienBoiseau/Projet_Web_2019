@@ -2,6 +2,7 @@
 $session = "projet_web_2019";
 $usr = "root";
 $mdp = "";
+
 function OuvrirConnexion($session, $usr, $mdp)
 {
     try {

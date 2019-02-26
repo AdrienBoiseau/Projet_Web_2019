@@ -12,13 +12,11 @@ class View
     public function makeConnexionPage() {
         include("connexion.html");
     }
-<<<<<<< HEAD
     public function makeListPage($weirdObjects){
     	foreach ($weirdObjects as $weirdObject) {
     		include("templateList.php");
     	}
     }
-=======
     public function makeInscriptionPage(){
         include ("inscription.html");
     }
@@ -29,6 +27,4 @@ class View
             $_SESSION['feedback']="";
         }
     }
-
->>>>>>> 91b3bd87f9e45624c7c1082df45dcd2065d40d61
 }

@@ -15,16 +15,11 @@ class Controller
      * Controller constructor.
      * @param $view
      */
-    public function __construct(View $view, Connexion $connexion, WeirdObjectStorage $weirdObjectStorage)
+    public function __construct(View $view, Connexion $connexion, WeirdObjectStorage $weirdObjectStorage, Inscription $inscription)
     {
         $this->view = $view;
         $this->connexion = $connexion;
         $this->weirdObjectStorage = $weirdObjectStorage;
-
-    public function __construct(View $view, Connexion $connexion, Inscription $inscription)
-    {
-        $this->view = $view;
-        $this->connexion = $connexion;
         $this->inscription = $inscription;
     }
 
@@ -34,7 +29,7 @@ class Controller
     public function connexion() {
         $session = "projet_web_2019";
         $usr = "root";
-        $mdp = "root";
+        $mdp = "";
 
         $bdd = OuvrirConnexion($session, $usr, $mdp);
 
@@ -48,7 +43,7 @@ class Controller
     public function inscription() {
         $session = "projet_web_2019";
         $usr = "root";
-        $mdp = "root";
+        $mdp = "";
 
         $bdd = OuvrirConnexion($session, $usr, $mdp);
         $this->view->makeInscriptionPage();
