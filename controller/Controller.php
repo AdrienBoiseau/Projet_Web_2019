@@ -26,6 +26,7 @@ class Controller
     public function accueil() {
         $this->view->makeAccueilPage();
     }
+
     public function connexion() {
         $session = "projet_web_2019";
         $usr = "root";
@@ -52,7 +53,22 @@ class Controller
     }
 
     public function showList(){
-        $this->view->makeListPage($this->weirdObjectStorage->readAll());
+        $session = "projet_web_2019";
+        $usr = "root";
+        $mdp = "";
+
+        $bdd = OuvrirConnexion($session, $usr, $mdp);
+        $this->view->makeListPage($this->weirdObjectStorage->readAllFromBase($bdd));
+    }
+
+    public function addWeirdObject(){
+        $session = "projet_web_2019";
+        $usr = "root";
+        $mdp = "";
+
+        $bdd = OuvrirConnexion($session, $usr, $mdp);
+        $this->view->makeAddingPage();
+        $this->weirdObjectStorage->addWeirdObject($bdd);
     }
 
 }

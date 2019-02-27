@@ -27,8 +27,15 @@ class Connexion
                 foreach ($usersSQL as $users) {
 
                     if (password_verify($_POST['pass'], $users['password'])) {
-                        $_SESSION["feedback"]= "Vous êtes connectés.";
-                        $_SESSION['id'] = $_POST['name'];
+                        if($_POST['name'] == 'toto'){
+                            $_SESSION["feedback"]= "Vous êtes connectés en tant qu'admin.";
+                            $_SESSION['id'] = $_POST['name'];
+                        }
+                        else{
+                            $_SESSION["feedback"]= "Vous êtes connectés.";
+                            $_SESSION['id'] = $_POST['name'];
+                        }
+                        
                     } else {
                         $_SESSION["feedback"]= "Nom d'utilisateur ou mot de passe incorrect.";
 
@@ -50,5 +57,4 @@ class Connexion
         header("Location: " . $url, true, 303);
 
     }
-
 }
