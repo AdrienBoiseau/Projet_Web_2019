@@ -3,8 +3,12 @@ $session = "projet_web_2019";
 $usr = "root";
 $mdp = "";
 
-function OuvrirConnexion($session, $usr, $mdp)
+function OuvrirConnexion()
 {
+    $session = "projet_web_2019";
+    $usr = "root";
+    $mdp = "";
+
     try {
         $conn = new PDO("mysql:host=localhost;dbname=$session", $usr, $mdp);
 		$conn->exec("SET CHARACTER SET utf8");
