@@ -3,6 +3,7 @@
 require_once("view/View.php");
 require_once ("model/Connexion.php");
 require_once ("model/Inscription.php");
+require_once ("model/fonc_bdd.php");
 
 class Controller
 {
@@ -10,13 +11,14 @@ class Controller
     protected $connexion;
     protected $weirdObjectStorage;
     protected $inscription;
-
+    protected $bdd;
     /**
      * Controller constructor.
      * @param $view
      */
     public function __construct(View $view, Connexion $connexion, WeirdObjectStorage $weirdObjectStorage, Inscription $inscription)
     {
+        $this->bdd = OuvrirConnexion();
         $this->view = $view;
         $this->connexion = $connexion;
         $this->weirdObjectStorage = $weirdObjectStorage;
@@ -28,47 +30,25 @@ class Controller
     }
 
     public function connexion() {
-        $session = "projet_web_2019";
-        $usr = "root";
-        $mdp = "";
-
-        $bdd = OuvrirConnexion($session, $usr, $mdp);
-
         $this->view->makeConnexionPage();
-        $this->connexion->connexion($bdd);
+        $this->connexion->connexion($this->bdd);
     }
     public function deconnexion() {
         $this->connexion->deconnexion();
     }
 
     public function inscription() {
-        $session = "projet_web_2019";
-        $usr = "root";
-        $mdp = "";
-
-        $bdd = OuvrirConnexion($session, $usr, $mdp);
         $this->view->makeInscriptionPage();
-        $this->inscription->inscription($bdd);
-
+        $this->inscription->inscription($this->bdd);
     }
 
     public function showList(){
-        $session = "projet_web_2019";
-        $usr = "root";
-        $mdp = "";
-
-        $bdd = OuvrirConnexion($session, $usr, $mdp);
-        $this->view->makeListPage($this->weirdObjectStorage->readAllFromBase($bdd));
+        $this->view->makeListPage($this->weirdObjectStorage->readAllFromBase($this->bdd));
     }
 
     public function addWeirdObject(){
-        $session = "projet_web_2019";
-        $usr = "root";
-        $mdp = "";
-
-        $bdd = OuvrirConnexion($session, $usr, $mdp);
         $this->view->makeAddingPage();
-        $this->weirdObjectStorage->addWeirdObject($bdd);
+        $this->weirdObjectStorage->addWeirdObject($this->bdd);
     }
 
 }
