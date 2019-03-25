@@ -9,9 +9,9 @@
 
 		public function __construct(){
 			$dentier = new WeirdObject(null, 'Dentier USB', 'une clé qui a du mordant', 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkyOcuTXosysA21sILjTl_c_drwfF9LH9hSyqMtrMh6FqtcTD4UQ');
-			$starwars = new WeirdObject(null, 'Toilettes Star Wars', 'que la froce soit avec vous', 20, 'http://www.chakipet.com/wp-content/uploads/objets-insolites-salle-de-bain-17.jpg');
+			$starwars = new WeirdObject(null, 'Toilettes Star Wars', 'que la force soit avec vous', 20, 'http://www.chakipet.com/wp-content/uploads/objets-insolites-salle-de-bain-17.jpg');
 			$lama = new WeirdObject(null, 'Lama chiffounette', 'le lama qui nettoie tout', 5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG1YCCVfVJP8OfMOwW6bxgE6hH8rzLhQO2keLhOC5n56HxeJWJ');
-			$weirdObjectList = array($dentier, $starwars, $lama);
+			$this->weirdObjectList = array($dentier, $starwars, $lama);
 		}
 
 		public function read($id){
@@ -30,9 +30,9 @@
 				$imgURL = $weirdObject['imgURL'];
 
 				$newObject = new WeirdObject($id, $name, $description, $price, $imgURL);
-				$weirdObjectList[] = $newObject;
+				$this->weirdObjectList[] = $newObject;
 			}
-			return $weirdObjectList;
+			return $this->weirdObjectList;
 		}
 
 		public function addWeirdObject($bdd){

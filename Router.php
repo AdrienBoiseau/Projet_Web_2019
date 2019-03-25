@@ -14,7 +14,7 @@ class Router
 
         $view = new View($this);
         $connexion = new Connexion();
-        $weirdObjectStorage = new WeirdObjectStorageCrud();
+        $weirdObjectStorage = new WeirdObjectStorageCrud($connexion->OuvrirConnexion());
         $inscription = new Inscription();
 
         $ctrl = new Controller($view, $connexion, $weirdObjectStorage, $inscription);
@@ -22,6 +22,7 @@ class Router
         session_start();
 
         $ctrl->accueil();
+
         if (key_exists('list', $_GET)) {
             $ctrl->showList();
         }
