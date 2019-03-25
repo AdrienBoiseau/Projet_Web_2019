@@ -12,6 +12,10 @@ class Connexion
     public function __construct () {
 
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3d24a0a11d157785f9ca2f9cb0c6c94fa438276f
 
     public function connexion ($bdd) {
         if (key_exists("pass",$_POST) && key_exists("name",$_POST)) {

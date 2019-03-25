@@ -1,17 +1,13 @@
 <?php
-$session = "projet_web_2019";
-$usr = "root";
-$mdp = "";
 
 function OuvrirConnexion()
 {
     $session = "projet_web_2019";
     $usr = "root";
     $mdp = "";
-
     try {
         $conn = new PDO("mysql:host=localhost;dbname=$session", $usr, $mdp);
-		$conn->exec("SET CHARACTER SET utf8");
+        $conn->exec("SET CHARACTER SET utf8");
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage() . "<br/>";
         echo "<br>Votre nom d'utilisateur ou votre mot de passe est &eacute;ronn&eacute;e, veuillez vous reconnecter...<br>";
@@ -22,14 +18,12 @@ function OuvrirConnexion()
     }
     return $conn;
 }
-
 //---------------------------------------------------------------------------------------------
 function ExecuterRequete($conn, $req)
 {
     $res = $conn->exec($req);
     return $res;
 }
-
 //---------------------------------------------------------------------------------------------
 function LireDonneesPDO1($conn, $req)
 {
@@ -38,12 +32,11 @@ function LireDonneesPDO1($conn, $req)
         $tab[$i++] = $ligne;
     }
     if(isset($tab)){
-   		return $tab;
+        return $tab;
     }else{
-    	return null;
+        return null;
     }
 }
-
 //---------------------------------------------------------------------------------------------
 function LireDonneesPDO2($conn, $sql)
 {
@@ -53,7 +46,6 @@ function LireDonneesPDO2($conn, $sql)
         $tab[$i++] = $ligne;
     return $tab;
 }
-
 //---------------------------------------------------------------------------------------------
 function LireDonneesPDO3($conn, $sql)
 {
@@ -61,14 +53,11 @@ function LireDonneesPDO3($conn, $sql)
     $tab = $cur->fetchall(PDO::FETCH_ASSOC);
     return $tab;
 }
-
 //---------------------------------------------------------------------------------------------
 function FermerConnexion($conn)
 {
     // DÈconnexion de la BDD
     unset($conn);
 }
-
 //---------------------------------------------------------------------------------------------
-
 ?>

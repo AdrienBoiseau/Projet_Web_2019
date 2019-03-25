@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <title>Se connecter</title>
-</head>
-<body>
-<h2>Se connecter</h2>
-<form id="FormLogin" method="post">
-    <label for="name">Nom : </label>
-    <input type="text" id="name" name="name" required="required" placeholder="Entrez votre nom"/>
-    <br/>
-    <label for="pass">Mot de passe : </label>
-    <input type="password" id="pass" name="pass" required="required" placeholder="Entrez mot de passe"/>
-    <br/>
-    <input class="button" type="submit" name="valider" value="Se connecter"/>
+<form class="FormLogin" id="FormLogin" method="post">
+    <div class="container">
+        <label for="name"><b>Nom d'utilisateur : </b></label>
+        <input class="test" type="text" id="name" name="name" required="required" placeholder="Entrez votre nom"/>
+
+        <label for="pass"><b>Mot de passe :</b></label>
+        <input type="password" id="pass" name="pass" required="required" placeholder="Entrez mot de passe"/>
+
+        <button type="submit" name="valider">Se connecter</button>
+    </div>
 </form>
-</body>
 </html>
