@@ -37,7 +37,7 @@
 				$imgURL = $_POST['imgURL'];
 				$weirdObject = new WeirdObject($name, $description, $price, $imgURL);
 				$weirdObjectList[] = $weirdObject;
-				$addRequest = "insert into weirdObject (name, description, price, imgURL) values (\"$weirdObject->getName()\",\"$weirdObject->getDescription()\",\"$weirdObject->getPrice()\",\"$weirdObject->getImage()\")";
+				$addRequest = "insert into weirdObject (name, description, price, imgURL) values (\"$name\",\"$description\",\"$price\",\"$imgURL\")";
 				$bdd->exec($addRequest);
 				$_SESSION["feedback"] = "Objet ajouté à la collection";
 				$url="/Projet_Web_2019";
