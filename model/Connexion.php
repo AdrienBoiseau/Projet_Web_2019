@@ -12,26 +12,7 @@ class Connexion
     public function __construct () {
 
     }
-    
-    function OuvrirConnexion()
-    {
-        $session = "projet_web_2019";
-        $usr = "root";
-        $mdp = "";
 
-        try {
-            $conn = new PDO("mysql:host=localhost;dbname=$session", $usr, $mdp);
-            $conn->exec("SET CHARACTER SET utf8");
-        } catch (PDOException $e) {
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            echo "<br>Votre nom d'utilisateur ou votre mot de passe est &eacute;ronn&eacute;e, veuillez vous reconnecter...<br>";
-            echo '<form action = \'<?php $_SERVER[\'PHP_SELF\'] ?>\' method=\'post\' enctype=\'application/x-www-form-urlencoded\'>
-                    <input type=\'submit\' value=\'Retour\'>
-                </form>';
-            die();
-        }
-        return $conn;
-    }
 
     public function connexion ($bdd) {
         if (key_exists("pass",$_POST) && key_exists("name",$_POST)) {

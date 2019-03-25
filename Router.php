@@ -14,7 +14,7 @@ class Router
 
         $view = new View($this);
         $connexion = new Connexion();
-        $weirdObjectStorage = new WeirdObjectStorageCrud($connexion->OuvrirConnexion());
+        $weirdObjectStorage = new WeirdObjectStorageCrud();
         $inscription = new Inscription();
 
         $ctrl = new Controller($view, $connexion, $weirdObjectStorage, $inscription);
