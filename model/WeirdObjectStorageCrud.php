@@ -3,7 +3,7 @@
 	require_once ("model/WeirdObjectStorage.php");
 	require_once ("model/WeirdObject.php");
 
-	class WeirdObjectStorageStub implements WeirdObjectStorage {
+	class WeirdObjectStorageCrud implements WeirdObjectStorage {
 
 		public function __construct(){
 			$weirdObjectList = array();
@@ -35,13 +35,15 @@
 				$description = $_POST['description'];
 				$price = $_POST['price'];
 				$imgURL = $_POST['imgURL'];
-				$addRequest = "insert into weirdObject (name, description, price, imgURL) values (\"$name\",\"$description\",\"$price\",\"$imgURL\")";
+				$weirdObject = new WeirdObject($name, $description, $price, $imgURL);
+				$weirdObjectList[] = $weirdObject;
+				$addRequest = "insert into weirdObject (name, description, price, imgURL) values (\"$weirdObject->getName()\",\"$weirdObject->getDescription()\",\"$weirdObject->getPrice()\",\"$weirdObject->getImage()\")";
 				$bdd->exec($addRequest);
-
 				$_SESSION["feedback"] = "Objet ajouté à la collection";
 				$url="/Projet_Web_2019";
             	header("Location: " . $url, true, 303);
 			}
+
 		}
 
 		public function deleteWeirdObject(){

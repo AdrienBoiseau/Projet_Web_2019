@@ -4,7 +4,7 @@ require_once ("controller/Controller.php");
 require_once ("view/View.php");
 require_once ("model/Connexion.php");
 require_once ("model/fonc_bdd.php");
-require_once ("model/WeirdObjectStorageStub.php");
+require_once ("model/WeirdObjectStorageCrud.php");
 require_once ("model/Inscription.php");
 
 class Router
@@ -14,7 +14,7 @@ class Router
 
         $view = new View($this);
         $connexion = new Connexion();
-        $weirdObjectStorage = new WeirdObjectStorageStub();
+        $weirdObjectStorage = new WeirdObjectStorageCrud();
         $inscription = new Inscription();
 
         $ctrl = new Controller($view, $connexion, $weirdObjectStorage, $inscription);
