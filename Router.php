@@ -40,5 +40,9 @@ class Router
         if(key_exists('addWeirdObject', $_GET)){
             $ctrl->addWeirdObject();
         }
+        if(key_exists('id', $_GET)){
+            $ctrl->weirdObjectPage($_GET['id']);
+            $ctrl->deleteWeirdObject($_GET['id']);
+        }
     }
 }

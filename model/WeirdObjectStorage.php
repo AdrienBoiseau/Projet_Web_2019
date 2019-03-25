@@ -5,6 +5,6 @@
 		public function read($id);
 		public function readAllFromBase($bdd);
 		public function addWeirdObject($bdd);
-		public function deleteWeirdObject();
+		public function deleteWeirdObject($bdd, $id);
 		public function modifyWeirdObject();
 	}

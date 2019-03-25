@@ -33,4 +33,7 @@ class View
     public function makeAddingPage(){
         include ("addingTemplate.html");
     }
+    public function makeWeirdObjectPage(){
+        include ("weirdObjectPage.html");
+    }
 }

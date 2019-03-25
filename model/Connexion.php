@@ -9,11 +9,11 @@
 class Connexion
 {
 
-    function __construct () {
+    public function __construct () {
 
     }
     
-    function connexion ($bdd) {
+    public function connexion ($bdd) {
         if (key_exists("pass",$_POST) && key_exists("name",$_POST)) {
             //requête sur pour récuperer le mot de passe de l'utilisateur dans la base de données
             $usersSQL = "select * from USERS where name ='".$_POST['name']."'";
@@ -48,7 +48,7 @@ class Connexion
         }
     }
 
-    function deconnexion() {
+    public function deconnexion() {
         session_start();
         if (key_exists("id",$_SESSION)) {
             session_destroy();
@@ -57,4 +57,5 @@ class Connexion
         header("Location: " . $url, true, 303);
 
     }
+
 }

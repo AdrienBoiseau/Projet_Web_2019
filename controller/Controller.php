@@ -43,12 +43,20 @@ class Controller
     }
 
     public function showList(){
-        $this->view->makeListPage($this->weirdObjectStorage->readAllFromBase($this->bdd));
+        $this->view->makeListPage($this->bdd, $this->weirdObjectStorage->readAllFromBase($this->bdd));
     }
 
     public function addWeirdObject(){
         $this->view->makeAddingPage();
         $this->weirdObjectStorage->addWeirdObject($this->bdd);
+    }
+
+    public function deleteWeirdObject($id){
+        $this->weirdObjectStorage->deleteWeirdObject($this->bdd, $id);
+    }
+
+    public function weirdObjectPage($id) {
+        $this->view->makeWeirdObjectPage($id);
     }
 
 }
