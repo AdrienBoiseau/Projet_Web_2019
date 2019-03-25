@@ -4,12 +4,19 @@
 	    <meta charset="UTF-8">
 	    <title>Accueil</title>
 	</head>
-	<body>
-	<p>efzgr</p>
-		<a href="/Projet_Web_2019"><h1>Bienvenue sur l'application d'objets insolites</h1></a>
+	<?php if(key_exists("id", $_SESSION) && $_SESSION["id"] == 'toto'){?>
+	<header class="header_admin">
+		<a href="?list"> <input type="button" value="Voir les objets"></a>
+		<a href="?addWeirdObject"> <input type="button" value="Ajouter un objet insolite"></a>
+		<a href="?deconnexion"> <input type="button" value="Se déconnecter"></a>
+	</header>
+	<?php } else {?>
+	<header class="header">
 		<a href="?connexion"> <input type="button" value="Se connecter"></a>
 		<a href="?inscription"> <input type="button" value="S'inscrire"></a>
-		<a href="?deconnexion"> <input type="button" value="Se déconnecter"></a>
-		<a href="?list"> <input type="button" value="Voir les objets"></a>
+	</header>
+	<?php } ?>
+	<body>
+
 	</body>
 </html>

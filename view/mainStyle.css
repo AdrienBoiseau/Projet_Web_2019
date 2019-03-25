@@ -3,13 +3,44 @@ p {
      text-align: center;
  }
 
+.header {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.header_admin {
+    text-align: center;
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
+}
+header input {
+    background-color: #0b79af;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: large;
+}
+header input:hover {
+    opacity: 0.8;
+}
+header {
+    background-color: #0b79af;
+    border-radius: 10px;
+}
 
+header a {
+    text-decoration: none;
+
+}
 .FormLogin {
+    margin-top: 3%;
     border: 3px solid #f1f1f1;
     width: 50%;
     margin-right: auto;
     margin-left: auto;
-
 }
 
 .FormLogin input[type=text], input[type=password] {
@@ -30,6 +61,8 @@ p {
     border: none;
     cursor: pointer;
     width: 100%;
+    border-radius: 10px;
+
 }
 
 .FormLogin button:hover {

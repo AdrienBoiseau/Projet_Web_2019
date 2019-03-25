@@ -22,9 +22,6 @@ class View
     }
     public function makeAccueilPage(){
         include ("accueil.html");
-        if(key_exists("id", $_SESSION) && $_SESSION["id"] == 'toto'){
-            echo '<a href="?addWeirdObject"> <input type="button" value="Ajouter un objet insolite"></a>';
-        }
         if (key_exists("feedback", $_SESSION)) {
             echo $_SESSION['feedback'];
             $_SESSION['feedback']="";
