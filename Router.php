@@ -26,9 +26,6 @@ class Router
         if (key_exists('list', $_GET)) {
             $ctrl->showList();
         }
-        if (key_exists("id",$_SESSION)) {
-            echo "Bonjour ".$_SESSION['id'];
-        }
         if (key_exists('connexion', $_GET)) {
             $ctrl->connexion();
         }

@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <title>Inscription</title>
 </head>
-<body>
-<h2>S'inscrire</h2>
-<form id="FormInscription" method="post">
-    <label for="name">Entrez votre nom : </label>
-    <input type="text" id="name" name="name" required="required" placeholder="Entrez votre nom"/>
-    <br/>
-    <label for="pass">Entrez votre mot de passe : </label>
-    <input type="password" id ="pass" name="pass" required="required" placeholder="Entrez mot de passe"/>
-    <br/>
-    <input class="button" type="submit" name="valider" value="S'inscrire"/>
+<div class="inscription_box">
+    <p>Nouvelle utilisateur ?</p>
+    <a href="./?connexion" ><p>Déjà utilisateur ?</p></a>
+</div>
+
+<form class="FormInscription" method="post">
+    <div class="container">
+        <label for="name"><b>Votre nom d'utilisateur : </b></label>
+        <input type="text" id="name" name="name" required="required" placeholder="Entrez votre nom"/>
+        <label for="pass"><b>Votre mot de passe :</b></label>
+        <input type="password" id ="pass" name="pass" required="required" placeholder="Entrez votre mot de passe"/>
+        <button type="submit" name="valider">S'inscrire</button>
+    </div>
 </form>
-</body>
 </html>

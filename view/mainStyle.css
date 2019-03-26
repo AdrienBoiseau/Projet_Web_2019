@@ -1,21 +1,31 @@
-p {
-     color: blue;
-     text-align: center;
- }
 
-.header {
-    text-align: center;
+/* Style pour les menus top (header) */
+.menu_top {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    background-color: black;
+    padding: 14px 20px;
+    margin:0;
 }
-.header_admin {
+.menu_top p {
+    color: white;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+}
+.menu {
     text-align: center;
     display: grid;
-    grid-template-columns:  1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.menu_login {
+    text-align: center;
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr;
 }
 header input {
-    background-color: #0b79af;
-    color: white;
+    background-color: white;
+    color: black;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -23,18 +33,53 @@ header input {
     width: 100%;
     font-size: large;
 }
+header p {
+    font-size: large;
+    margin: 8px 0;
+    padding: 27px 20px;
+    font-family: STSong;
+    text-decoration: none;
+    color: black;
+
+}
+header .menu p:hover {
+    opacity: 0.3;
+}
+header .menu_login p:hover {
+    opacity: 0.3;
+}
 header input:hover {
-    opacity: 0.8;
+    opacity: 0.3;
 }
 header {
-    background-color: #0b79af;
-    border-radius: 10px;
+    line-height: 0;
+    margin:0;
+    padding:0;
+    background-color: white;
+    border-width:1px;
+    border-style:solid;
+    border-color:gray;
 }
-
 header a {
     text-decoration: none;
 
 }
+
+/* Style pour le body */
+
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+}
+
+/* Style formulaire login */
+
 .FormLogin {
     margin-top: 3%;
     border: 3px solid #f1f1f1;
@@ -42,7 +87,6 @@ header a {
     margin-right: auto;
     margin-left: auto;
 }
-
 .FormLogin input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -52,7 +96,6 @@ header a {
     box-sizing: border-box;
     border-radius: 10px;
 }
-
 .FormLogin button {
     background-color: #0b79af;
     color: white;
@@ -64,13 +107,97 @@ header a {
     border-radius: 10px;
 
 }
-
 .FormLogin button:hover {
     opacity: 0.8;
 }
-
-
 .FormLogin .container {
     padding: 16px;
 }
 
+/* Style formulaire inscriptions */
+.FormInscription {
+    margin-top: 0%;
+    border: 3px solid #f1f1f1;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.FormInscription input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.FormInscription button {
+    background-color: #0b79af;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+
+}
+.FormInscription button:hover {
+    opacity: 0.8;
+}
+.FormInscription .container {
+    padding: 16px;
+}
+/* Style formulaire d'ajout */
+.FormAdd {
+    margin-top: 0%;
+    border: 3px solid #f1f1f1;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.FormAdd input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.FormAdd button {
+    background-color: #0b79af;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+
+}
+.FormAdd button:hover {
+    opacity: 0.8;
+}
+.FormAdd .container {
+    padding: 16px;
+}
+.inscription_box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 0;
+}
+/* Style pour le footer */
+footer {
+    background-color: lightgrey;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+footer p {
+    text-align: center;
+}

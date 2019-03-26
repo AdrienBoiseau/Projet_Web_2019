@@ -5,18 +5,33 @@
 	    <title>Accueil</title>
 	</head>
 	<?php if(key_exists("id", $_SESSION) && $_SESSION["id"] == 'toto'){?>
-	<header class="header_admin">
-		<a href="?list"> <input type="button" value="Voir les objets"></a>
-		<a href="?addWeirdObject"> <input type="button" value="Ajouter un objet insolite"></a>
-		<a href="?deconnexion"> <input type="button" value="Se déconnecter"></a>
+	<header class="header_login">
+		<div class="menu_top">
+			<p>Bonjour <?php echo $_SESSION['id']?> !</p>
+		</div>
+		<div class="menu_login">
+			<a href="./"><p>OBJETS INSOLITES</p></a>
+			<a href="?list"> <input type="button" value="Voir les objets"></a>
+			<a href="?addWeirdObject"> <input type="button" value="Ajouter un objet insolite"></a>
+			<a href="?deconnexion"> <input type="button" value="Se déconnecter"></a>
+		</div>
 	</header>
 	<?php } else {?>
 	<header class="header">
-		<a href="?connexion"> <input type="button" value="Se connecter"></a>
-		<a href="?inscription"> <input type="button" value="S'inscrire"></a>
+		<div class="menu_top">
+			<p>Bienvenue sur les site des objets insolites</p>
+		</div>
+		<div class="menu">
+			<a href="./"><p>OBJETS INSOLITES</p></a>
+			<a href="?connexion"> <input type="button" value="Se connecter"></a>
+			<a href="?inscription"> <input type="button" value="S'inscrire"></a>
+		</div>
 	</header>
 	<?php } ?>
 	<body>
-
+	<h1>Ici du contenu</h1>
 	</body>
+	<footer>
+		<p>©2019 Objets insolites - Tous droits réservés</p>
+	</footer>
 </html>
