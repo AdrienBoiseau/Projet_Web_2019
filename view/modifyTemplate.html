@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Modifier un objet insolite</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body> 
+		<!-- A terme il faudrait que le template inclut un template de formulaire général -->
+		<form class="FormModify" method="post">
+			<div class="container">
+				<label for="name">Nom de l'objet: </label>
+				<input type="text" id="name" name="name" required="required" value=<?php echo $weirdObject->getName(); ?>>
+				<br/>
+				<label for="description">Description de l'objet : </label>
+				<input type="text" id="description" name="description" required="required" value=<?php echo $weirdObject->getDescription(); ?>>
+				<br/>
+				<label for="price">Prix de l'objet : </label>
+				<input type="text" id="price" name="price" required="required" value=<?php echo $weirdObject->getPrice(); ?>>
+				<br/>
+				<label for="imgURL">Image : </label>
+				<input type="text" id="imgURL" name="imgURL" required="required" value=<?php echo $weirdObject->getImage(); ?>>
+				<br/>
+				<button id="modify" type="submit" name="valider">Modifier</button>
+			</div>
+		</form>
+	</body>
+</html>

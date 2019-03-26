@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<title>Ajouter un objet insolite</title>
+		<title>Détails de l'objet</title>
 		<meta charset="UTF-8" />
 	</head>
 	<body> 
@@ -9,6 +9,7 @@
 		YO je suis la page de l'objet numéro <?php echo $_GET['id']; ?>
 		<form id="alter" name="alter" method="post">
 			<button id="delete" name="delete">Supprimer</button>
+			<?php echo '<a href=?modify=' . $_GET['id']. '>' ?> <input type="button" value="Modifier un objet insolite"></a>
 		</form>
 	</body>
 </html>

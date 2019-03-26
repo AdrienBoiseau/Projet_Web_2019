@@ -14,8 +14,13 @@
 			$this->weirdObjectList = array($dentier, $starwars, $lama);
 		}
 
-		public function read($id){
-			return $this->weirdObjectList[$id];
+		public function read($id, $bdd){
+			$objectList = $this->readAllFromBase($bdd);
+			foreach ($objectList as $key => $weirdObject) {
+				if($weirdObject->getId() == $id){
+					return $weirdObject;
+				}
+			}
 		}
 
 		public function readAllFromBase($bdd){
@@ -65,16 +70,27 @@
 						unset($weirdObjectList[$weirdObject]);
 					}
 				}
-
 				$_SESSION["feedback"] = "Objet supprimé";
 				$url="/Projet_Web_2019";
 	        	header("Location: " . $url, true, 303);
-
-			}
-			
+			}		
 		}
 
-		public function modifyWeirdObject(){
-			//TODO
+		public function modifyWeirdObject($bdd, $weirdObject){
+			//on récupère l'id de l'objet qu'on veut modifier
+			$id = $weirdObject->getId();
+			if(key_exists('name', $_POST) && key_exists('description', $_POST) && key_exists('price', $_POST) && $_POST['imgURL']){
+				$name = $_POST['name'];
+				$description = $_POST['description'];
+				$price = $_POST['price'];
+				$imgUrl = $_POST['imgURL'];
+				//on modifie l'objet dans la base de données
+				$modifyRequest = "update weirdObject set name=\"$name\", description=\"$description\", price=\"$price\", imgURL=\"$imgUrl\" where id=\"$id\"";
+				$bdd->exec($modifyRequest);
+				
+				$_SESSION["feedback"] = "Objet modifié";
+				$url="/Projet_Web_2019";
+            	header("Location: " . $url, true, 303);
+			}
 		}
 	}

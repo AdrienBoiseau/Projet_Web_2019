@@ -30,7 +30,10 @@ class View
     public function makeAddingPage(){
         include ("addingTemplate.html");
     }
-    public function makeWeirdObjectPage(){
+    public function makeWeirdObjectPage($weirdObject){
         include ("weirdObjectPage.html");
+    }
+    public function makeModifyPage($weirdObject){
+        include ("modifyTemplate.html");
     }
 }

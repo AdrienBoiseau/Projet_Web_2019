@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 </head>
 	<h1>
-		<?php echo '<a href=index.php?id=' . $weirdObject->getId(). '>' . $weirdObject->getName() . ', ' . $weirdObject->getDescription(); 
+		<?php echo '<a href=?id=' . $weirdObject->getId(). '>' . $weirdObject->getName() . ', ' . $weirdObject->getDescription(); 
 				echo '</a>';
 		?>
 	</h1>

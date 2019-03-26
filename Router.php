@@ -42,5 +42,8 @@ class Router
             $ctrl->weirdObjectPage($_GET['id']);
             $ctrl->deleteWeirdObject($_GET['id']);
         }
+        if(key_exists('modify', $_GET)){
+            $ctrl->modifyWeirdObject($_GET['modify']);
+        }
     }
 }
