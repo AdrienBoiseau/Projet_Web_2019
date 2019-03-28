@@ -78,110 +78,7 @@ body {
     text-align: center;
 }
 
-/* Style formulaire login */
-
-.FormLogin {
-    margin-top: 3%;
-    border: 3px solid #f1f1f1;
-    width: 50%;
-    margin-right: auto;
-    margin-left: auto;
-}
-.FormLogin input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 10px;
-}
-.FormLogin button {
-    background-color: #0b79af;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    border-radius: 10px;
-
-}
-.FormLogin button:hover {
-    opacity: 0.8;
-}
-.FormLogin .container {
-    padding: 16px;
-}
-
-/* Style formulaire inscriptions */
-.FormInscription {
-    margin-top: 0%;
-    border: 3px solid #f1f1f1;
-    width: 50%;
-    margin-right: auto;
-    margin-left: auto;
-}
-.FormInscription input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 10px;
-}
-.FormInscription button {
-    background-color: #0b79af;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    border-radius: 10px;
-
-}
-.FormInscription button:hover {
-    opacity: 0.8;
-}
-.FormInscription .container {
-    padding: 16px;
-}
 /* Style formulaire d'ajout */
-.FormAdd {
-    margin-top: 0%;
-    border: 3px solid #f1f1f1;
-    width: 50%;
-    margin-right: auto;
-    margin-left: auto;
-}
-.FormAdd input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 10px;
-}
-.FormAdd button {
-    background-color: #0b79af;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    border-radius: 10px;
-
-}
-.FormAdd button:hover {
-    opacity: 0.8;
-}
-.FormAdd .container {
-    padding: 16px;
-}
 .inscription_box {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -190,6 +87,42 @@ body {
     margin-right: 20%;
     margin-bottom: 0;
 }
+/* Style formulaire  */
+form {
+    margin-top: 2%;
+    border: 3px solid #f1f1f1;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+form input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+form button, .modify_button {
+     background-color: #0b79af;
+     color: white;
+     padding: 14px 20px;
+     margin: 8px 0;
+     border: none;
+     cursor: pointer;
+     width: 100%;
+     border-radius: 10px;
+ }
+.alter a {
+    text-decoration: none;
+}
+form button:hover, .modify_button:hover {
+    opacity: 0.8;
+}
+form .container {
+    padding: 16px;
+}
 /* Style pour le footer */
 footer {
     background-color: lightgrey;
@@ -197,7 +130,114 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
+    display: grid;
+    grid-template-columns: 90% 10%;
+
 }
 footer p {
     text-align: center;
 }
+.bar {
+    height: 3em;
+    background-image:url('https://www.lavantgardiste.com/img/c/130.jpg');
+    line-height: 3em;
+}
+footer a button {
+    background-color: #35af17;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+}
+/* Style pour le texte du menu */
+.text_menu {
+    margin-top: 2%;
+    border: 3px solid #f1f1f1;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+/* Style pour le texte de la top bar au dessus sur slider */
+
+.bar h1 {
+    font-family: "Heiti TC";
+    vertical-align: center;
+}
+/* Style pour le slider */
+
+.slider {
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    margin: 20px auto;
+}
+.slides {
+    width: calc(500px * 3);
+    animation: glisse 10s infinite;
+}
+.slide {
+    float: left;
+}
+img {
+    height: 333px;
+    width: 500px;
+}
+@keyframes glisse {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(0);
+    }
+    33% {
+        transform: translateX(-500px);
+    }
+    43% {
+        transform: translateX(-500px);
+    }
+    66% {
+        transform: translateX(-1000px);
+    }
+    76% {
+        transform: translateX(-1000px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.view_object {
+    background-color: lightgrey;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 10px;
+
+}
+.view_object img {
+    border-radius: 10px;
+
+}
+.view_object .title_object a{
+    text-decoration: none;
+    color: black;
+
+}
+.view_object .title_object {
+    font-family: "Arial Black";
+}
+
+.view_object  a{
+    text-decoration: none;
+    color: orangered;
+}
+.apropos {
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-top: 3%;
+    border:solid black 2px;
+    border-radius: 10px;
+}
+
+

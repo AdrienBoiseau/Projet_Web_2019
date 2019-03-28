@@ -4,7 +4,7 @@
 	    <meta charset="UTF-8">
 	    <title>Accueil</title>
 	</head>
-	<?php if(key_exists("id", $_SESSION) && $_SESSION["id"] == 'toto'){?>
+	<?php if(key_exists("id", $_SESSION)){?>
 	<header class="header_login">
 		<div class="menu_top">
 			<p>Bonjour <?php echo $_SESSION['id']?> !</p>
@@ -29,9 +29,48 @@
 	</header>
 	<?php } ?>
 	<body>
-	<h1>Ici du contenu</h1>
+	<?php if(isset($_GET) && $_GET == null){?>
+	<div class="bar">
+		<h1>Qui nous sommes ? </h1>
+	</div>
+	<div class="slider">
+		<div class="slides">
+			<div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG1YCCVfVJP8OfMOwW6bxgE6hH8rzLhQO2keLhOC5n56HxeJWJ" alt="" /></div>
+			<div class="slide"><img src="http://www.chakipet.com/wp-content/uploads/objets-insolites-salle-de-bain-17.jpg" alt="" /></div>
+			<div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkyOcuTXosysA21sILjTl_c_drwfF9LH9hSyqMtrMh6FqtcTD4UQ" alt="" /></div>
+		</div>
+	</div>
+	<div class="text_menu">
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+			Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</div>
+
+	<?php }?>
+	<?php if(key_exists("apropos", $_GET)){?>
+	<div class="apropos">
+		<p>
+			Étudiant(e) n°1 : 21500202
+		</p>
+		<p>
+			Étudiant(e) n°2 : 21502649
+		</p>
+		<h1>
+			Nos choix en matière de design :
+		</h1>
+		<p>
+			Nous avons choisi un design sobre, il est parfois très simple et minimaliste.
+		</p>
+
+	</div>
+
+	<?php }?>
 	</body>
 	<footer>
 		<p>©2019 Objets insolites - Tous droits réservés</p>
+		<a href="?apropos"> <button>A Propos</button></a>
 	</footer>
 </html>
