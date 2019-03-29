@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  mar. 26 fév. 2019 à 16:13
+-- Généré le :  ven. 29 mars 2019 à 09:59
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.8
 
@@ -19,22 +19,62 @@ USE `projet_web_2019`;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `USERS`
+-- Structure de la table `users`
 --
 
-CREATE TABLE `USERS` (
-  `id` int(11) NOT NULL,
+CREATE TABLE `users` (
+  `id_users` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `USERS`
+-- Déchargement des données de la table `users`
 --
 
-INSERT INTO `USERS` (`id`, `name`, `password`) VALUES
-(1, 'toto', '$2y$10$vecze/V//nVxqjpk2VqMOuk46PoPs/ol.xdB4.0OTtj1Z.ee0W4a.'),
-(2, 'adrien', '$2y$10$IaHVurBdcaaf3dYKJyKHyOEbX..wtrXtybIBL0cMVnQFv7VkyTpv.'),
-(3, 'test', '$2y$10$TSaPOpk.wTiCqerTBjc4COd5Ovx9v3n6gVYvqPBP7snD1NFQqryv6'),
-(4, 'alissa', '$2y$10$8nFfszUdmd71v0JWvG1qS.FLvFdWJo2I3ifWfYTleZBOK2vi4yVHW'),
-(5, 'alissa', '$2y$10$52wf5.WH8wdX2fw1Hgt4Qewi85WXJEgFMRpnML6CR/xTUZqS1qHqi');
+INSERT INTO `users` (`id_users`, `name`, `password`) VALUES
+(1, 'toto', '$2y$10$vecze/V//nVxqjpk2VqMOuk46PoPs/ol.xdB4.0OTtj1Z.ee0W4a.');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `weirdobject`
+--
+
+CREATE TABLE `weirdobject` (
+  `id_weirdobject` int(5) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `price` int(5) NOT NULL,
+  `imgURL` varchar(100) NOT NULL,
+  `id_users` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `weirdobject`
+--
+
+INSERT INTO `weirdobject` (`id_weirdobject`, `name`, `description`, `price`, `imgURL`, `id_users`) VALUES
+(1, 'Le dentier USB', 'Une clé qui a du mordant, toujours à portée de dents', 10, 'img/usb_dentier.jpg', 0),
+(2, 'Toilettes Star Wars', 'Que la force soit avec vous', 20, 'img/toilettes_sw.jpg', 0),
+(4, 'Le lama chiffounette', 'Le lama qui nettoie tout', 3, 'https://www.mr-etrange.fr/wp-content/uploads/2018/05/plumeau-lama-insolite-350x350.jpg', 0);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `weirdobject`
+--
+ALTER TABLE `weirdobject`
+  ADD PRIMARY KEY (`id_weirdobject`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `weirdobject`
+--
+ALTER TABLE `weirdobject`
+  MODIFY `id_weirdobject` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
