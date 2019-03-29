@@ -43,13 +43,7 @@ class Controller
     }
 
     public function showList(){
-        if(key_exists("id", $_SESSION)) {
-            $this->view->makeListPage($this->weirdObjectStorage->readAllFromBase($this->bdd));
-        } else {
-            $_SESSION['feedback']="Vous devez être connecté pour accéder à cette page.";
-            $url="/Projet_Web_2019";
-            header("Location: " . $url, true, 303);
-        }
+        $this->view->makeListPage($this->weirdObjectStorage->readAllFromBase($this->bdd));
     }
 
     public function addWeirdObject(){
