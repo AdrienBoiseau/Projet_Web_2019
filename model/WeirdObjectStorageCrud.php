@@ -55,16 +55,27 @@
                         $id_users=$idusers['id_users'];
                     }
                 }
+
+                //Récupération de l'ID+1
+                $usersIDSQL = "select max(id_weirdobject)+1 as id from weirdobject";
+                $usersIDSQL = $bdd->query($usersIDSQL, PDO::FETCH_ASSOC);
+                foreach ($usersIDSQL as $id) {
+                    $id = $id['id'];
+                }
+
 				//on construit l'objet et on le push dans notre array
-				$weirdObject = new WeirdObject(null, $name, $description, $price, $imgURL, $id_users);
+				$weirdObject = new WeirdObject($id, $name, $description, $price, $imgURL, $id_users);
 				$weirdObjectList[] = $weirdObject;
 				//on insert l'objet dans notre base de données
-				$addRequest = "insert into weirdObject (name, description, price, imgURL, id_users) values (\"$name\",\"$description\",\"$price\",\"$imgURL\",\"$id_users\")";
+				$addRequest = "insert into weirdobject (name, description, price, imgURL, id_users) values (\"$name\",\"$description\",\"$price\",\"$imgURL\",\"$id_users\")";
 				$bdd->exec($addRequest);
 
 				$_SESSION["feedback"] = "Objet ajouté à la collection";
-				$url="/Projet_Web_2019?list";
-            	header("Location: " . $url, true, 303);
+                ?>
+                <script language="javascript">
+                    setTimeout("location.href = './?list'",1);
+                </script>
+                <?php
 			}
 		}
 
@@ -89,18 +100,21 @@
                 }
                 else {
                     //on supprime l'objet de la base de données
-                    $deleteRequest = "delete from weirdObject where id_weirdobject=(\"$id\")";
+                    $deleteRequest = "delete from weirdobject where id_weirdobject=(\"$id\")";
                     $bdd->exec($deleteRequest);
                     //on recherche dans notre array l'objet à supprimer
-                    foreach ($weirdObjectList as $key => $weirdObject) {
+                    foreach ($this->weirdObjectList as $key => $weirdObject) {
                         if($weirdObject->getId() == $id){
-                            unset($weirdObjectList[$weirdObject]);
+                            unset($this->weirdObjectList[$weirdObject]);
                         }
                     }
                     $_SESSION["feedback"] = "Objet supprimé";
                 }
-				$url="/Projet_Web_2019?list";
-	        	header("Location: " . $url, true, 303);
+                ?>
+                <script language="javascript">
+                    setTimeout("location.href = './?list'",1);
+                </script>
+                <?php
 			}		
 		}
 
@@ -132,13 +146,16 @@
                     $price = $_POST['price'];
                     $imgUrl = $_POST['imgURL'];
                     //on modifie l'objet dans la base de données
-                    $modifyRequest = "update weirdObject set name=\"$name\", description=\"$description\", price=\"$price\", imgURL=\"$imgUrl\" where id_weirdobject=\"$id\"";
+                    $modifyRequest = "update weirdobject set name=\"$name\", description=\"$description\", price=\"$price\", imgURL=\"$imgUrl\" where id_weirdobject=\"$id\"";
                     $bdd->exec($modifyRequest);
 
                     $_SESSION["feedback"] = "Objet modifié";
                 }
-				$url="/Projet_Web_2019?list";
-            	header("Location: " . $url, true, 303);
+                ?>
+                <script language="javascript">
+                    setTimeout("location.href = './?list'",1);
+                </script>
+                <?php
 			}
 		}
 	}

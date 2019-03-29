@@ -52,8 +52,11 @@ class Controller
             $this->weirdObjectStorage->addWeirdObject($this->bdd);
         } else {
             $_SESSION['feedback']="Vous devez être connecté pour accéder à cette page.";
-            $url="/Projet_Web_2019?list";
-            header("Location: " . $url, true, 303);
+            ?>
+            <script language="javascript">
+                setTimeout("location.href = './?list'",1);
+            </script>
+            <?php
         }
     }
 
@@ -62,8 +65,11 @@ class Controller
             $this->weirdObjectStorage->deleteWeirdObject($this->bdd, $id);
         } else {
             $_SESSION['feedback']="Vous devez être connecté pour accéder à cette page.";
-            $url="/Projet_Web_2019?list";
-            header("Location: " . $url, true, 303);
+            ?>
+            <script language="javascript">
+                setTimeout("location.href = './?list'",1);
+            </script>
+            <?php
         }
     }
 
@@ -73,8 +79,11 @@ class Controller
             $this->weirdObjectStorage->modifyWeirdObject($this->bdd, $this->weirdObjectStorage->read($id, $this->bdd));
         } else {
             $_SESSION['feedback']="Vous devez être connecté pour accéder à cette page.";
-            $url="/Projet_Web_2019?list";
-            header("Location: " . $url, true, 303);
+            ?>
+            <script language="javascript">
+                setTimeout("location.href = './?list'",1);
+            </script>
+            <?php
         }
     }
 
@@ -83,8 +92,11 @@ class Controller
             $this->view->makeWeirdObjectPage($this->weirdObjectStorage->read($id, $this->bdd));
         } else {
             $_SESSION['feedback']="Vous devez être connecté pour accéder à cette page.";
-            $url="/Projet_Web_2019?list";
-            header("Location: " . $url, true, 303);
+            ?>
+            <script language="javascript">
+                setTimeout("location.href = './?list'",1);
+            </script>
+            <?php
         }
     }
 

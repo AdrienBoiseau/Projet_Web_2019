@@ -18,8 +18,6 @@ class Router
         $inscription = new Inscription();
 
         $ctrl = new Controller($view, $connexion, $weirdObjectStorage, $inscription);
-        
-        session_start();
 
         $ctrl->accueil();
 

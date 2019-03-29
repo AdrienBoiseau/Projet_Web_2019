@@ -16,7 +16,7 @@ class Connexion
     public function connexion ($bdd) {
         if (key_exists("pass",$_POST) && key_exists("name",$_POST)) {
             //requête sur pour récuperer le mot de passe de l'utilisateur dans la base de données
-            $usersSQL = "select * from USERS where name ='".$_POST['name']."'";
+            $usersSQL = "select * from users where name ='".$_POST['name']."'";
             $usersSQL=$bdd->query($usersSQL, PDO::FETCH_ASSOC);
             $count = $usersSQL->rowCount();
 
@@ -42,19 +42,23 @@ class Connexion
                     }
                 }
             }
-            $url="/Projet_Web_2019";
-            header("Location: " . $url, true, 303);
+            ?>
+            <script language="javascript">
+                setTimeout("location.href = './'",1);
+            </script>
+            <?php
 
         }
     }
 
     public function deconnexion() {
-        session_start();
         if (key_exists("id",$_SESSION)) {
             session_destroy();
-        }
-        $url="/Projet_Web_2019";
-        header("Location: " . $url, true, 303);
+        }?>
+        <script language="javascript">
+            setTimeout("location.href = './'",1);
+            </script>
+            <?php
 
     }
 
