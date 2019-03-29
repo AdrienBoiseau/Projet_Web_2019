@@ -23,7 +23,7 @@ class View
     public function makeAccueilPage(){
         include ("accueil.html");
         if (key_exists("feedback", $_SESSION)) {
-            echo $_SESSION['feedback'];
+            echo "<p class='feedback'>".$_SESSION['feedback']."</p>";
             $_SESSION['feedback']="";
         }
     }

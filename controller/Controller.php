@@ -43,25 +43,55 @@ class Controller
     }
 
     public function showList(){
-        $this->view->makeListPage($this->weirdObjectStorage->readAllFromBase($this->bdd));
+        if(key_exists("id", $_SESSION)) {
+            $this->view->makeListPage($this->weirdObjectStorage->readAllFromBase($this->bdd));
+        } else {
+            $_SESSION['feedback']="Vous devez être connecté pour accéder à cette page.";
+            $url="/Projet_Web_2019";
+            header("Location: " . $url, true, 303);
+        }
     }
 
     public function addWeirdObject(){
-        $this->view->makeAddingPage();
-        $this->weirdObjectStorage->addWeirdObject($this->bdd);
+        if(key_exists("id", $_SESSION)) {
+            $this->view->makeAddingPage();
+            $this->weirdObjectStorage->addWeirdObject($this->bdd);
+        } else {
+            $_SESSION['feedback']="Vous devez être connecté pour accéder à cette page.";
+            $url="/Projet_Web_2019";
+            header("Location: " . $url, true, 303);
+        }
     }
 
     public function deleteWeirdObject($id){
-        $this->weirdObjectStorage->deleteWeirdObject($this->bdd, $id);
+        if(key_exists("id", $_SESSION)) {
+            $this->weirdObjectStorage->deleteWeirdObject($this->bdd, $id);
+        } else {
+            $_SESSION['feedback']="Vous devez être connecté pour accéder à cette page.";
+            $url="/Projet_Web_2019";
+            header("Location: " . $url, true, 303);
+        }
     }
 
     public function modifyWeirdObject($id){
-        $this->view->makeModifyPage($this->weirdObjectStorage->read($id, $this->bdd));
-        $this->weirdObjectStorage->modifyWeirdObject($this->bdd, $this->weirdObjectStorage->read($id, $this->bdd));
+        if(key_exists("id", $_SESSION)) {
+            $this->view->makeModifyPage($this->weirdObjectStorage->read($id, $this->bdd));
+            $this->weirdObjectStorage->modifyWeirdObject($this->bdd, $this->weirdObjectStorage->read($id, $this->bdd));
+        } else {
+            $_SESSION['feedback']="Vous devez être connecté pour accéder à cette page.";
+            $url="/Projet_Web_2019";
+            header("Location: " . $url, true, 303);
+        }
     }
 
     public function weirdObjectPage($id) {
-        $this->view->makeWeirdObjectPage($this->weirdObjectStorage->read($id, $this->bdd));
+        if(key_exists("id", $_SESSION)) {
+            $this->view->makeWeirdObjectPage($this->weirdObjectStorage->read($id, $this->bdd));
+        } else {
+            $_SESSION['feedback']="Vous devez être connecté pour accéder à cette page.";
+            $url="/Projet_Web_2019";
+            header("Location: " . $url, true, 303);
+        }
     }
 
 }

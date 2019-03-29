@@ -5,8 +5,7 @@
 		<meta charset="UTF-8" />
 	</head>
 	<body> 
-		TODO PAGE DU DETAIL DE L'OBJET (POTENTIELLEMENT RAJOUTER DES CHAMPS DANS LA TABLE POUR QUE CE SOIT PLUS COMPLET)
-		YO je suis la page de l'objet numéro <?php echo $_GET['id']; ?>
+		Plus d'informations sur l'objet numéro : <?php echo $_GET['id']; ?>
 		<form class="alter" id="alter" name="alter" method="post">
 			<button id="delete" name="delete">Supprimer</button>
 			<?php echo '<a href=?modify=' . $_GET['id']. '>' ?> <input class="modify_button" type="button" value="Modifier un objet insolite"></a>
