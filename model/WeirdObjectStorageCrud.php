@@ -27,16 +27,18 @@
 			$weirdObjects = "SELECT id_weirdobject, name, description, price, imgURL, id_users FROM weirdobject";
 			$weirdObjects = $bdd->query($weirdObjects, PDO::FETCH_ASSOC);
 
-			foreach ($weirdObjects as $weirdObject) {
-				$id = $weirdObject['id_weirdobject'];
-				$name = $weirdObject['name'];
-				$description = $weirdObject['description'];
-				$price = $weirdObject['price'];
-				$imgURL = $weirdObject['imgURL'];
-                $id_users = $weirdObject['id_users'];
+			if(!empty($weirdObjects)){
+				foreach ($weirdObjects as $weirdObject) {
+					$id = $weirdObject['id_weirdobject'];
+					$name = $weirdObject['name'];
+					$description = $weirdObject['description'];
+					$price = $weirdObject['price'];
+					$imgURL = $weirdObject['imgURL'];
+	                $id_users = $weirdObject['id_users'];
 
-				$newObject = new WeirdObject($id, $name, $description, $price, $imgURL, $id_users);
-				$this->weirdObjectList[] = $newObject;
+					$newObject = new WeirdObject($id, $name, $description, $price, $imgURL, $id_users);
+					$this->weirdObjectList[] = $newObject;
+				}
 			}
 			return $this->weirdObjectList;
 		}
